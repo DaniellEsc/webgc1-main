@@ -1,0 +1,8 @@
+<app-title title="Datos Generales"></app-title>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <app-data-card [data]="data" *ngFor="let data of datos"></app-data-card>
+</div>
+<div class="text-center mt-4">
+  <app-back-button link="/panel/administrador"></app-back-button>
+</div>

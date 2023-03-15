@@ -1,0 +1,72 @@
+<app-title title="Empresa"></app-title>
+<div
+  class="container-fluid shadow-sm p-5 mb-5 bg-body rounded"
+  *ngIf="perfilEmpresa; else addOption"
+>
+  <div class="row">
+    <div class="col-md-2 text-center">
+      <img src="../../../../assets/icons/building-icon.svg" width="100px" />
+    </div>
+    <div class="col-md-9">
+      <div class="row px-2">
+        <div
+          class="col-md-6 d-flex justify-content-start align-items-center gap-2 py-2"
+        >
+          <h6 class="mb-0 text-uppercase">Nombre:</h6>
+          <div>{{ perfilEmpresa?.nombre }}</div>
+        </div>
+        <div
+          class="col-md-6 d-flex justify-content-start align-items-center gap-2 py-2"
+        >
+          <h6 class="mb-0 text-uppercase">RUC:</h6>
+          <div>{{ perfilEmpresa?.ruc }}</div>
+        </div>
+        <div
+          class="col-md-6 d-flex justify-content-start align-items-center gap-2 py-2"
+        >
+          <h6 class="mb-0 text-uppercase">Sector empresarial:</h6>
+          <div>{{ perfilEmpresa?.sectorEmpresarial }}</div>
+        </div>
+        <div
+          class="col-md-6 d-flex justify-content-start align-items-center gap-2 py-2"
+        >
+          <h6 class="mb-0 text-uppercase">Tipo Empresa:</h6>
+          <div>{{ perfilEmpresa?.tipoEmpresa }}</div>
+        </div>
+        <div
+          class="col-md-6 d-flex justify-content-start align-items-center gap-2 py-2"
+        >
+          <h6 class="mb-0 text-uppercase">Razon Social:</h6>
+          <div>{{ perfilEmpresa?.razonSocial }}</div>
+        </div>
+        <div
+          class="col-md-6 d-flex justify-content-start align-items-center gap-2 py-2"
+        >
+          <h6 class="mb-0 text-uppercase">Departamento:</h6>
+          <div>{{ perfilEmpresa?.departamento }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1">
+      <div class="d-flex justify-content-end">
+        <i
+          class="bi bi-pencil-square"
+          title="editar"
+          routerLink="/panel/empresa/empresa-form/{{ perfilEmpresa?.id }}"
+        ></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #addOption>
+  <app-add-option link="/panel/empresa/empresa-form"></app-add-option>
+</ng-template>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <app-card-option
+    [ngClass]="disableCards()"
+    [data]="option"
+    *ngFor="let option of empresaOptions"
+  ></app-card-option>
+</div>

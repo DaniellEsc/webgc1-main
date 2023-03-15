@@ -1,0 +1,146 @@
+<div class="text-lg-start">
+  <app-back-button link="/panel/administrador/postulaciones"></app-back-button>
+</div>
+<br>
+
+
+<div class="m-4">
+  <h3 class="text-center">DATOS DEL POSTULANTE</h3>
+  <div class="p-4">
+
+    <div class="text-center">
+
+      <img src= "https://pespringboots3bucket.s3.amazonaws.com/{{postulaciones.estudiante.rutaImagen}}"  alt="{{postulaciones.estudiante.cedula + postulaciones.estudiante.nombres + postulaciones.estudiante.apellidos}}"     width="250" height="250">
+
+    </div>
+    <br>
+
+
+    <table class="table table-light  table-striped-columns">
+      <tbody>
+      <tr>
+        <td>CEDULA:</td>
+        <td>{{postulaciones.estudiante.cedula}}</td>
+        <td>NOMBRE:</td>
+        <td>{{postulaciones.estudiante.nombres}}</td>
+        <td>APELLIDO:</td>
+        <td>{{postulaciones.estudiante.apellidos}}</td>
+        <td>GENERO:</td>
+        <td>{{postulaciones.estudiante.genero}}</td>
+      </tr>
+      <tr>
+        <td>FECHA DE NACIMIENTO:</td>
+        <td>{{postulaciones.estudiante.fechaNacimiento}}</td>
+        <td>CIUDAD:</td>
+        <td>{{postulaciones.estudiante.ciudad.nombre}}</td>
+        <td>DIRECCION:</td>
+        <td>{{postulaciones.estudiante.direccion}}</td>
+        <td>ESTADO CIVIL:</td>
+        <td>{{postulaciones.estudiante.estadoCivil}}</td>
+      </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+
+<div class="m-4">
+  <h3 class="text-center">DATOS ESPECIFICOS DE LA POSTULACION</h3>
+
+  <div class="p-4">
+
+    <table class="table table-light table-striped-columns">
+      <tbody>
+      <tr>
+        <td>CARGO:</td>
+        <td>{{postulaciones.ofertaLaboral.cargo}}</td>
+        <td>DESCRIPCION:</td>
+        <td>{{postulaciones.ofertaLaboral.descripcion}}</td>
+        <td>AREA CONOCIMIENTO:</td>
+        <td>{{postulaciones.ofertaLaboral.area_conocimiento}}</td>
+      </tr>
+      <tr>
+        <td>SALARIO</td>
+        <td>{{postulaciones.ofertaLaboral.salario}}</td>
+        <td>JORNADA:</td>
+        <td>{{postulaciones.ofertaLaboral.jornada}}</td>
+        <td>REQUISITOS ACADEMICOS:</td>
+        <td>{{postulaciones.ofertaLaboral.requisitos_academicos}}</td>
+      </tr>
+      <tr>
+        <td>EXPERIENCIAS:</td>
+        <td>{{postulaciones.ofertaLaboral.experiencia}}</td>
+        <td>UBICACION:</td>
+        <td>{{postulaciones.ofertaLaboral.ubicacion}}</td>
+        <td>FECHA INICIO:</td>
+        <td>{{postulaciones.ofertaLaboral.fecha_inicio}}</td>
+      </tr>
+      <tr>
+        <td>FECHA FIN:</td>
+        <td>{{postulaciones.ofertaLaboral.fecha_fin}}</td>
+        <td>CIUDAD:</td>
+        <td>{{postulaciones.ofertaLaboral.ciudad.nombre}}</td>
+        <td>EMPRESA:</td>
+        <td>{{postulaciones.ofertaLaboral.empresa.nombre}}</td>
+      </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<div class="m-4">
+  <h3 class="text-center">DATOS ESPECIFICOS DE LA POSTULACION</h3>
+
+  <div class="p-4">
+    <table class="table table-light table-striped-columns">
+      <tbody>
+      <tr>
+        <td>CARGO:</td>
+        <td>{{postulaciones.ofertaLaboral.cargo}}</td>
+        <td>ESTADO:</td>
+        <td>{{postulaciones.estado}}</td>
+        <td>ESTUDIANTE:</td>
+        <td>{{postulaciones.estudiante.nombres}} {{postulaciones.estudiante.apellidos}}</td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="m-4">
+  <h3 class="text-center">MODIFICAR ESTADO DE LA POSTULACION</h3>
+  <div class="p-4">
+
+    <form ngNativeValidate>
+
+      <div class="mb-3">
+        <label for="estado" class="form-label">ESTADO</label>
+        <select class="form-select" aria-label="Default select example" name="estado" id="estado"
+                [(ngModel)]="postulacionesPut.estado">
+          <option value="evaluación">Evaluación</option>
+          <option value="selección">Selección</option>
+          <option value="finalizada">Finalizada</option>
+          <option value="cancelada">Cancelada</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary" (click)="modificarEstado(postulacionesPut,postulaciones.id)">
+            MODIFICAR
+          </button>
+        </div>
+
+      </div>
+
+
+    </form>
+
+
+  </div>
+</div>

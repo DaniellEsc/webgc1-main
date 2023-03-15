@@ -1,0 +1,68 @@
+<div class="text-lg-start">
+  <app-back-button link="/panel/administrador"></app-back-button>
+</div>
+
+<div class="m-4">
+  <h1 class="text-center">USUARIOS TOTALES DENTRO DEL SISTEMA</h1>
+  <div class="p-4">
+
+    <input
+      type="text"
+      class="form-control"
+      name="filterPost"
+      placeholder="Buscador..."
+      [(ngModel)]="filterPost"
+    />
+    <br/>
+
+    <div class="wrapper">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">USUARIO</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">TELEFONO</th>
+          <th scope="col">ESTADO</th>
+          <th scope="col">FECHA CREACION</th>
+          <th scope="col">ROL</th>
+          <th scope="col">VER</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let usuarios of usuario | usuarioList: filterPost ">
+          <td>{{usuarios.username}}</td>
+          <td>{{usuarios.email}}</td>
+          <td>{{usuarios.telefono}}</td>
+          <td>
+            <input class="form-check-input" type="checkbox" role="switch" id="estado" name="estado"
+                   [checked]="usuarios.estado" (click)="updateUsuario(usuarios.id, usuarios)">
+          </td>
+          <td>{{usuarios.fechaCreacion}}</td>
+  
+          <td>
+            <select class="form-select" name="roles" id="roles" [(ngModel)]="usuarios.rol">
+              <ng-container *ngFor="let roles of rol">
+                <option value="{{roles.nombre}}">{{roles.nombre}}</option>
+              </ng-container>
+            </select>
+          </td>
+  
+  
+          <td>
+            <button class="btn btn-outline-primary" (click)="updateUsuarioRol(usuarios.id, usuarios)" >MODIFICAR ROL</button>
+          </td>
+  
+  
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!--
+    <td>{{usuarios.rol}}</td>
+
+    routerLink="/panel/administrador/usuario-list/{{usuarios.id}}
+        -->

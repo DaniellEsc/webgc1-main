@@ -1,0 +1,98 @@
+<div  class="forma">
+  <app-title title="Detalles de la Oferta Laboral"></app-title>
+    <div style="visibility: hidden" >{{oferta?.id}}</div>
+    <div style="visibility: hidden" >{{estudiante.cedula}}</div>
+        <div class="row " >
+          <div class="col" >
+            <label class="form-label text-uppercase" >CARGO</label>
+            <br>
+            <input type="text" class="form-control" aria-label="First name" readonly="readonly"
+            [(ngModel)]= "oferta.cargo" name="cargo"
+            >
+          </div>
+
+          <div class="col" >
+            <label class="form-label text-uppercase" >Salario</label>
+            <br>
+            <input type="text" class="form-control" aria-label="First name" readonly="readonly"
+            [(ngModel)]="oferta.salario" name= "salario"
+            >
+          </div>
+
+        </div>
+        <br>
+        <div class="row " >
+          <div class="col" >
+            <label >REQUISITOS</label>
+            <br>
+            <textarea
+            class="requisitos_academicos"
+            name="requisitos_academicos"
+            id="requisitos_academicos"
+            cols="50"
+            rows="5"
+            [(ngModel)]="oferta.requisitos_academicos" 
+            required
+            style="resize: none"
+            readonly="readonly"
+          ></textarea>
+
+
+
+          </div>
+          <div class="col">
+            <label >CIUDAD</label>
+            <br>
+            <input type="text" class="form-control"  aria-label="First name" readonly="readonly"
+            [(ngModel)]="oferta.ciudad" name="ciudad">
+          </div>
+        </div>
+        <br>
+        <div class="row " >
+          <div class="col" >
+            <label >DESCRIPCION</label>
+            <br>
+            <textarea
+            class="descripcion"
+            name="descripcion"
+            id="descripcion"
+            cols="50"
+            rows="5"
+            [(ngModel)]="oferta.descripcion"
+            required
+            style="resize: none"
+            readonly="readonly"
+          ></textarea>
+          </div>
+          <div class="col">
+            <label >AREA DE CONOCIMIENTO</label>
+            <br>
+            <input type="text" class="form-control"  aria-label="Last name" readonly="readonly"
+            [(ngModel)]="oferta.area_conocimiento" name="area_conocimiento"
+            >
+          </div>
+        </div>
+        <br>
+        <div class="row " >
+          <div class="col" >
+            <label >UBICACION</label>
+            <br>
+            <input type="text" class="form-control" aria-label="First name" readonly="readonly"
+            [(ngModel)]="oferta.ubicacion" name="ubicacion">
+          </div>
+  
+          <div class="col">
+            <label >EXPERIENCIA</label>
+            <br>
+            <input type="text" class="form-control" aria-label="Last name" readonly="readonly"
+            [(ngModel)]="oferta.experiencia" name="experiencia">
+          </div>
+        </div>
+      </div>
+      <br>
+      <div style="margin-left: 500px;">
+      <button type="submit" [routerLink]="['/ofertas']" class="btn btn-dark text-uppercase px-4 py-2 mt-3">REGRESAR</button> &nbsp;&nbsp;
+  
+      <button type="submit" class="btn btn-dark text-uppercase px-4 py-2 mt-3" (click)=" create()">APLICAR</button>
+   
+  </div>

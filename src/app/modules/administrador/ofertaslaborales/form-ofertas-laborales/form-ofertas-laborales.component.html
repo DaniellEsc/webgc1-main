@@ -1,0 +1,148 @@
+<div class="text-lg-start">
+  <app-back-button link="/panel/administrador/ofertas-laborales"></app-back-button>
+</div>
+
+<br>
+<h3 class="text-center">EMPRESA RESPONSABLE</h3>
+
+<div class="m-4">
+  <div class="p-4">
+    <table class="table table-light table-striped-columns">
+      <tbody>
+      <tr>
+        <td>RUC:</td>
+        <td>{{ofertas.empresa.ruc}}</td>
+        <td>NOMBRE:</td>
+        <td>{{ofertas.empresa.nombre}}</td>
+      </tr>
+      <tr>
+        <td>Sector Empresarial:</td>
+        <td>{{ofertas.empresa.sectorEmpresarial.nombre}}</td>
+        <td>Tipo Empresa:</td>
+        <td>{{ofertas.empresa.tipoEmpresa}}</td>
+      </tr>
+      <tr>
+        <td>Razon Social:</td>
+        <td>{{ofertas.empresa.razonSocial}}</td>
+        <td>Departamento:</td>
+        <td>{{ofertas.empresa.departamento}}</td>
+      </tr>
+      <tr>
+        <td>Ciudad:</td>
+        <td>{{ofertas.empresa.ciudad.nombre}}</td>
+        <td>Direccion:</td>
+        <td>{{ofertas.empresa.direccion}}</td>
+      </tr>
+      <tr>
+        <td>Sitio Web:</td>
+        <td>{{ofertas.empresa.sitioWeb}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<h3 class="text-center">DATOS ESPECIFICOS DE LA OFERTA</h3>
+
+
+<div class="m-4">
+  <div class="p-4">
+
+    <table class="table table-light table-striped-columns">
+      <tbody>
+      <tr>
+        <td>CARGO:</td>
+        <td>{{ofertas.cargo}}</td>
+        <td>DESCRIPCION:</td>
+        <td>{{ofertas.descripcion}}</td>
+      </tr>
+      <tr>
+        <td>AREA CONOCIMIENTO:</td>
+        <td>{{ofertas.area_conocimiento}}</td>
+        <td>SALARIO</td>
+        <td>{{ofertas.salario}}</td>
+      </tr>
+      <tr>
+        <td>JORNADA:</td>
+        <td>{{ofertas.jornada}}</td>
+        <td>REQUISITOS ACADEMICOS:</td>
+        <td>{{ofertas.requisitos_academicos}}</td>
+      </tr>
+      <tr>
+        <td>EXPERIENCIAS:</td>
+        <td>{{ofertas.experiencia}}</td>
+        <td>UBICACION:</td>
+        <td>{{ofertas.ubicacion}}</td>
+      </tr>
+      <tr>
+        <td>FECHA INICIO:</td>
+        <td>{{ofertas.fecha_inicio}}</td>
+        <td>FECHA FIN:</td>
+        <td>{{ofertas.fecha_fin}}</td>
+      </tr>
+      <tr>
+        <td>CIUDAD:</td>
+        <td>{{ofertas.ciudad.nombre}}</td>
+        <td>EMPRESA:</td>
+        <td>{{ofertas.empresa.nombre}}</td>
+      </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+
+<h3 class="text-center">OTRAS DE LA MISMA EMPRESA EMPRESA</h3>
+
+<div class="m-4">
+  <div class="p-4">
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">EMPRESA</th>
+        <th scope="col">CARGO</th>
+        <th scope="col">DESCRIPCION</th>
+        <th scope="col">AREA CONOCIMINETO</th>
+        <th scope="col">SALARIO
+        <th scope="col">JORNADA</th>
+        <th scope="col">REQUISITOS ACADEMICOS</th>
+        <th scope="col">EXPERIENCIA</th>
+        <th scope="col">UBICACIONES</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let ofertalaborales of ofertaE">
+        <td>{{ofertalaborales.empresa}}</td>
+        <td>{{ofertalaborales.cargo}}</td>
+        <td>{{ofertalaborales.descripcion}}</td>
+        <td>{{ofertalaborales.area_conocimiento}}</td>
+        <td>{{ofertalaborales.salario}}</td>
+        <td>{{ofertalaborales.jornada}}</td>
+        <td>{{ofertalaborales.requisitos_academicos}}</td>
+        <td>{{ofertalaborales.experiencia}}</td>
+        <td>{{ofertalaborales.ubicacion}}</td>
+
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<h3 class="text-center">NOTIFICAR DE UN FALLO?</h3>
+<div class="m-4">
+  <div class="p-4">
+    <a
+      href="mailto:{{ofertas.empresa.usuario.email}}?subject=MODIFICAR%20PERFIL%20DE%20EMPRESARIAL&body=HOLA%20MODIFIQUE$20SU%20PERFIL%20EMPRESARIAL%20{{ofertas.empresa.nombre}}">
+
+      <h1 class="text-center">
+        <button type="submit" class="btn btn-outline-primary">ENVIAR CORREO ELECTRONICO</button>
+      </h1>
+    </a>
+  </div>
+</div>
+

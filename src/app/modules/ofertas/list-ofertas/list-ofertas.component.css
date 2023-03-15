@@ -1,0 +1,15 @@
+.cards-container {
+  height: 1200px;
+  overflow-y: auto;
+}
+
+.card {
+  width: 100%;
+  max-width: 850px;
+  transition: 0.3s all ease-in;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.3);
+}

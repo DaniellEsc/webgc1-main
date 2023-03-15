@@ -1,0 +1,66 @@
+<app-title title="Capacitaciones"></app-title>
+<app-student-info-clip [idEstudiante]="estudiante_id"></app-student-info-clip>
+<div class="container-fluid p-0">
+  <button
+    class="btn btn-dark mb-3"
+    type="button"
+    class="btn btn-dark text-uppercase px-4 py-2 mb-3"
+    routerLink="/panel/estudiante/capacitacion-form"
+  >
+    <i class="bi bi-plus-circle-fill"></i> Agregar Nuevo
+  </button>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Institucion</th>
+        <th scope="col">Nombre Capacitacion</th>
+        <th scope="col">Tipo Capacitacion</th>
+        <th scope="col">Area</th>
+        <th scope="col">Tipo Certificado</th>
+        <th colspan="2"><i class="bi bi-gear"></i> Opciones</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let capacitacion of capacitacion; index as i">
+        <td style="visibility: hidden">{{ capacitacion.id }}</td>
+        <td>{{ capacitacion.institucion }}</td>
+        <td>{{ capacitacion.nombre_capacitacion }}</td>
+        <td>{{ capacitacion.tipoCapacitacion }}</td>
+        <td>{{ capacitacion.area_estudio }}</td>
+        <td>{{ capacitacion.tipoCertificado }}</td>
+
+        <td>
+          <button
+            type="button"
+            class="btn btn-warning"
+            [routerLink]="
+              '/panel/estudiante/capacitacion-form/' + capacitacion.id
+            "
+          >
+            <i class="bi bi-pen-fill"></i>
+          </button>
+        </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="deleteCapacitacion(capacitacion.id)"
+          >
+            <i class="bi bi-x-circle-fill"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <button
+      type="button"
+      class="btn btn-dark text-uppercase px-4 py-2 mb-3"
+      routerLink="/panel/estudiante"
+    >
+      Regresar
+    </button>
+  </div>
+</div>

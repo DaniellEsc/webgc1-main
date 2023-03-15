@@ -1,0 +1,1 @@
+supongo que para mantener un variable con un valor constante y le exporta 

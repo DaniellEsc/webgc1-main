@@ -1,0 +1,81 @@
+<div class="container mx-auto">
+    <app-title title="Registrar Contacto Empresarial"></app-title>
+    <form class="row g-4" ngNativeValidate (ngSubmit)="registrarContacto()">
+     
+     <div style="visibility: hidden"> 
+        <label> {{postContacto.empresa_id}}</label> 
+    </div>
+      <div class="col-md-12">
+        <label for="nombre" class="form-label text-uppercase"
+          >Nombre</label>
+        <input
+        type="text"
+        class="form-control"
+        id="nombre"
+        name="nombre"
+        cols="30"
+        rows="5"
+        [(ngModel)]=" postContacto.nombre"
+        required
+        placeholder="Nombre y Apellido"/>
+      </div>
+
+
+      <div class="col-md-12">
+        <label for="cargo" class="form-label text-uppercase">Cargo</label>
+        <input
+        type="text"
+        class="form-control"
+        id="cargo"
+        name="cargo"
+        cols="30"
+        rows="5"
+        [(ngModel)]=" postContacto.cargo"
+        required
+        placeholder="Cargo que desempeña en la empresa"/>
+      </div>
+
+
+
+      <div class="col-md-12">
+        <label for="telefono" class="form-label text-uppercase">Telefono</label>
+        <input
+        type="tel"
+
+        required pattern="[0-9]{10}" 
+        title="ingrese un numero valido por favor" 
+        class="form-control"
+        id="telefono"
+        name="telefono"
+        cols="30"
+        rows="5"
+        [(ngModel)]=" postContacto.telefono"
+       
+        placeholder="09999999999"/>
+      </div>
+  
+      <div class="col-md-12">
+        <label for="email" class="form-label text-uppercase">Email</label>
+        <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        cols="30"
+        rows="5"
+        [(ngModel)]=" postContacto.email"
+        required
+        placeholder="Correo electronico"/>
+      </div>
+      
+      <div
+        class="col-12 text-center d-flex justify-content-center align-items-center gap-3">
+        <app-back-button
+          [link]="'/panel/empresa/contactosEmpresariales/empresa/' + this.empresa_id"
+        ></app-back-button>
+        <button type="submit" class="btn btn-dark text-uppercase px-4 py-2 mt-3">
+          Registrar
+        </button>
+      </div>
+    </form>
+  </div>

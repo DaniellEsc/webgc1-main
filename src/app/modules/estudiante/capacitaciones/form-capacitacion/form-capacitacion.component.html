@@ -1,0 +1,144 @@
+<div class="container mx-auto">
+    <app-title title="Registrar Capacitacion"></app-title>
+    <form class="row g-4" ngNativeValidate (ngSubmit)="registrarCapacitacion()">
+      
+      <div class="col-md-12">
+        <label for="institucion" class="form-label text-uppercase"
+          >Institucion</label
+        >
+        <input
+        type="text"
+        class="form-control"
+        id="institucion"
+        name="institucion"
+        cols="30"
+        rows="5"
+        [(ngModel)]="capacitacion.institucion"
+        required
+        placeholder="Nombre de la institucion"/>
+      </div>
+      <div class="col-md-12">
+        <label for="nombre_capacitacion" class="form-label text-uppercase">nombre de la capacitacion</label>
+        <input
+        type="text"
+        class="form-control"
+        id="nombre_capacitacion"
+        name="nombre_capacitacion"
+        cols="30"
+        rows="5"
+        [(ngModel)]="capacitacion.nombre_capacitacion"
+        required
+        placeholder="Titulo o nombre de la capacitacion"/>
+      </div>
+      <div class="col-md-12">
+        <label for="tipoCertificado" class="form-label text-uppercase"
+          >TIPO DE CERTIFICADO </label>
+          <select
+          id="tipoCertificado"
+          name="tipoCertificado"
+          class="form-select"
+          [(ngModel)]="capacitacion.tipoCertificado"
+          required>
+          <option value="" disabled selected="selected">
+            Selecciona el tipo de capacitacion
+          </option>
+          <option [value]="tipo" *ngFor="let tipo of tiposdeC">
+            {{ tipo }}
+          </option>
+        </select>   
+      </div>
+
+
+      <div class="col-md-12">
+        <label for="tipoCapacitacion" class="form-label text-uppercase"
+          >TIPO DE CAPACITACION </label>
+
+          <select
+          id="tipoCapacitacion"
+          name="tipoCapacitacion"
+          class="form-select"
+          [(ngModel)]="capacitacion.tipoCapacitacion"
+          required
+        >
+          <option value="" disabled selected="selected">
+            Selecciona el tipo de capacitacion
+          </option>
+          <option [value]="tipo" *ngFor="let tipo of evento">
+            {{ tipo }}
+          </option>
+        </select>   
+      </div>
+
+      <div class="col-md-12">
+        <label for="tipoCapacitacion" class="col-form-label col-sm-2">AREA DE ESTUDIO</label>
+        <div class="col-sm-6">
+            
+            <select class="form-control" aria-label="Default select example" name="area_estudio"  type="text" [(ngModel)]="capacitacion.area_estudio" >
+                 <option selected></option>
+                 <option  *ngFor="let nivel of niveles">{{nivel.nombre}}</option>     
+               </select>   
+        </div>
+    </div>
+
+
+    <div class="col-lg-3 col-md-6">
+      <label for="fechaInicio" class="form-label text-uppercase"
+        >Fecha de Inicio</label
+      >
+      <input
+      value="2015-01-01"
+      min="2015-01-01" max="2021-12-31"
+        type="date"
+        class="form-control"
+        id="fechaInicio"
+        name="fechaInicio"
+        [(ngModel)]="capacitacion.fechaInicio"
+        required
+      />
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+      <label for="fechaFin" class="form-label text-uppercase"
+        >Fecha de Finalizacion</label
+      >
+      <input
+      min="2016-01-01" max="2022-12-31"
+        type="date"
+        class="form-control"
+        id="fechaFin"
+        name="fechaFin"
+        [(ngModel)]="capacitacion.fechaFin"
+        required
+      />
+    </div>
+    
+
+  
+
+      <div class="col-md-12">
+        <label for=" numHoras" class="form-label text-uppercase"
+          >Numero de Horas</label>
+        <input
+        type="text"
+        class="form-control"
+        id=" numHoras"
+        name="numHoras"
+        cols="30"
+        rows="5"
+        [(ngModel)]="capacitacion.numHoras"
+        required
+        placeholder="horas de capacitacion"/>
+      </div>
+
+
+      <div
+        class="col-12 text-center d-flex justify-content-center align-items-center gap-3">
+        <app-back-button
+          [link]="'/panel/estudiante/capacitaciones/estudiante/' + this.estudiante_id"
+        ></app-back-button>
+        <button type="submit" class="btn btn-dark text-uppercase px-4 py-2 mt-3">
+          Registrar
+        </button>
+      </div>
+    </form>
+  </div>

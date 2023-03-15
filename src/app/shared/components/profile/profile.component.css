@@ -1,0 +1,44 @@
+.profile-header {
+  position: relative;
+}
+
+.profile-header__background {
+  width: 100%;
+  height: 125px;
+  background: #141E30;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #243B55, #141E30);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #243B55, #141E30);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 25px 5px 5px 5px;
+
+}
+
+.profile-header__img {
+  bottom: 10px;
+  left: 30px;
+  position: absolute;
+  border: 3px solid #fff;
+  border-radius: 100%;
+  background-color: #212529;
+}
+
+.profile-header__info {
+  padding-top: 0.4rem;
+  padding-left: 10rem;
+}
+
+.border-bottom{
+  border-color: rgb(239, 236, 236) !important;
+}
+
+.profile-body{
+  position: relative;
+}
+
+.options {
+  top: -90px;
+  right: 3rem;
+  position: absolute;
+}

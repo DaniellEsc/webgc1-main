@@ -1,0 +1,52 @@
+<app-title>Contactos Empresariales</app-title>
+<div class="container-fluid p-0"  >
+  <button class="btn btn-dark mb-3"  type="button"
+  class="btn btn-dark text-uppercase px-4 py-2 mb-3"
+  routerLink="/panel/empresa/cotacto-form">
+    <i class="bi bi-plus-circle-fill" ></i> Agregar Nuevo
+  </button>
+ 
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Cargo</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Email</th>
+        <th colspan="2"><i class="bi bi-gear"></i> Opciones</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let contact of mycontactos; index as i">
+        <td style="visibility: hidden" >{{contact.id}} </td>
+        <td>{{contact.nombre}}</td>
+        <td>{{contact.cargo}}</td>
+        <td>{{contact.telefono}}</td>
+        <td>{{contact.email}}</td> 
+        <td>
+          <button type="button" class="btn btn-warning"   [routerLink]="'/panel/empresa/cotacto-form/' + contact.id">
+            <i class="bi bi-pen-fill"></i>
+          </button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger"
+          (click)=" deleteOferta(contact.id)"
+          >
+            <i class="bi bi-x-circle-fill"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <button
+    type="button"
+    class="btn btn-dark text-uppercase px-4 py-2 mb-3"
+    routerLink="/panel/empresa">
+    Regresar
+  </button>    
+  </div>
+  
+</div>

@@ -1,0 +1,178 @@
+<div class="text-lg-start">
+  <app-back-button link="/panel/administrador/hojas-vida"></app-back-button>
+</div>
+<br>
+
+<h3 class="text-center">DATOS PERSONALES</h3>
+
+<div class="m-4">
+  <div class="p-4">
+
+    <div class="text-center">
+
+      <img src= "https://pespringboots3bucket.s3.amazonaws.com/{{curriculum.rutaImagen}}"  alt="{{curriculum.cedula + curriculum.nombres + curriculum.apellidos}}"     width="250" height="250">
+
+    </div>
+    <br>
+
+    <table class="table table-light  table-striped-columns">
+      <tbody>
+      <tr>
+        <td>CEDULA:</td>
+        <td>{{curriculum.cedula}}</td>
+        <td>FECHA NACIMIENTO:</td>
+        <td>{{curriculum.fechaNacimiento}}</td>
+      </tr>
+      <tr>
+        <td>NOMBRES:</td>
+        <td>{{curriculum.nombres}}</td>
+        <td>APELLIDOS</td>
+        <td>{{curriculum.apellidos}}</td>
+      </tr>
+      <tr>
+        <td>GENERO:</td>
+        <td>{{curriculum.genero}}</td>
+        <td>CIUDAD:</td>
+        <td>{{curriculum.ciudad.nombre}}</td>
+      </tr>
+      <tr>
+        <td>DIRECCION:</td>
+        <td>{{curriculum.direccion}}</td>
+        <td>ESTADO CIVIL:</td>
+        <td>{{curriculum.estadoCivil}}</td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<h3 class="text-center">Educaciones</h3>
+
+<div class="m-4">
+  <div class="p-4">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">ANIO</th>
+        <th scope="col">TITULO</th>
+        <th scope="col">ISTITUCION EDUCATIVA</th>
+        <th scope="col">NIVEL</th>
+        <th scope="col">AREA ESTUDIO</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let educaciones of educacion">
+        <td>{{educaciones.anio}}</td>
+        <td>{{educaciones.titulo}}</td>
+        <td>{{educaciones.institucion_educativa}}</td>
+        <td>{{educaciones.nivel}}</td>
+        <td>{{educaciones.area_estudio}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<h3 class="text-center">Preferencias Empleo</h3>
+
+<div class="m-4">
+  <div class="p-4">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">SECTOR EMPRESARIAL</th>
+        <th scope="col">TIEMPO</th>
+        <th scope="col">SALARIO</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let preferenciaempleos of preferenciaempleo">
+        <td>{{preferenciaempleos.sector_empresarial}}</td>
+        <td>{{preferenciaempleos.tiempo}}</td>
+        <td>{{preferenciaempleos.salario}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<h3 class="text-center">Referencia Personal</h3>
+
+<div class="m-4">
+  <div class="p-4">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">NOMBRE</th>
+        <th scope="col">TELEFONO</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let referenciapersonales of referenciapersonal">
+        <td>{{referenciapersonales.nombre}}</td>
+        <td>{{referenciapersonales.telefono}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<h3 class="text-center">Referencia Profesional</h3>
+
+<div class="m-4">
+  <div class="p-4">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">ISTITUCION</th>
+        <th scope="col">NOMBRE</th>
+        <th scope="col">TELEFONO</th>
+        <th scope="col">EMAIL</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let referenciaprofesional of referenciaprofesionales">
+        <td>{{referenciaprofesional.institucion}}</td>
+        <td>{{referenciaprofesional.nombre}}</td>
+        <td>{{referenciaprofesional.telefono}}</td>
+        <td>{{referenciaprofesional.email}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<br>
+<br>
+
+
+<h3 class="text-center">COMENTARIOS AL CORREO</h3>
+
+<div class="m-4">
+  <div class="p-4">
+    <a
+      href="mailto:{{curriculum.usuario.email}}?subject=MODIFICAR%20HOJA%20DE%20VIDA&body=HOLA%20MODIFIQUE$20SU%20HOJA%20DE%20VIDA">
+
+      <h1 class="text-center">
+        <button type="submit" class="btn btn-outline-primary">ENVIAR CORREO ELECTRONICO</button>
+      </h1>
+    </a>
+  </div>
+</div>
+
+<br>
+<br>
+
+
+<h3 class="text-center">ACTIVAR HOJA DE VIDA</h3>
+
+<div class="m-4">
+  <div class="p-4">
+    <h1 class="text-center">
+      <button type="submit" class="btn btn-outline-success" (click)="updateUsuario(curriculum.usuario, curriculum.usuario.id)">ACTIVAR CV</button>
+    </h1>
+  </div>
+</div>

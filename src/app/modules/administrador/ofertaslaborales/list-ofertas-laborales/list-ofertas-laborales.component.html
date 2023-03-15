@@ -1,0 +1,64 @@
+<div class="text-lg-start">
+  <app-back-button link="/panel/administrador"></app-back-button>
+</div>
+
+<br />
+
+<div class="m-4">
+  <input
+    type="text"
+    class="form-control"
+    name="filterPost"
+    placeholder="Buscador..."
+    [(ngModel)]="filterPost"
+  />
+  <br />
+
+  <div class="wrapper">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">EMPRESA</th>
+          <th scope="col">CARGO</th>
+          <th scope="col">DESCRIPCION</th>
+          <th scope="col">AREA CONOCIMINETO</th>
+          <th scope="col">SALARIO</th>
+          <th scope="col">JORNADA</th>
+          <th scope="col">REQUISITOS ACADEMICOS</th>
+          <th scope="col">EXPERIENCIA</th>
+          <th scope="col">UBICACIONES</th>
+          <th scope="col">VER</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let ofertalaborales of ofertalaboral | ofertasLaborales: filterPost
+          "
+        >
+          <td>{{ ofertalaborales.empresa }}</td>
+          <td>{{ ofertalaborales.cargo }}</td>
+          <td>{{ ofertalaborales.descripcion }}</td>
+          <td>{{ ofertalaborales.area_conocimiento }}</td>
+          <td>{{ ofertalaborales.salario }}</td>
+          <td>{{ ofertalaborales.jornada }}</td>
+          <td>{{ ofertalaborales.requisitos_academicos }}</td>
+          <td>{{ ofertalaborales.experiencia }}</td>
+          <td>{{ ofertalaborales.ubicacion }}</td>
+
+          <div>
+            <button
+              type="button"
+              class="btn btn-outline-primary text-uppercase px-4 py-2 mt-3"
+              routerLink="/panel/administrador/ofertas-laborales/{{
+                ofertalaborales.id
+              }}"
+            >
+              ver MAS
+            </button>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

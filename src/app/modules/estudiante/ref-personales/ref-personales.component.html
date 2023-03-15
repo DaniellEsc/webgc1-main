@@ -1,0 +1,75 @@
+<app-title title="Referencias Personales"></app-title>
+<app-student-info-clip [idEstudiante]="estudiante_id"></app-student-info-clip>
+<div class="container center">
+  <div class="row g-4">
+    <div class="col-lg-3 col-md-6">
+      <label for="nombre" class="form-label text-uppercase">NOMBRE Y APELLIDO</label>
+      <input type="text" name="nombre" id="nombre" [(ngModel)]="nombresdatos" class="form-control" aria-label="First name" placeholder="- Ingrese Aquí -" required>
+
+    </div>
+    <div class="col-lg-3 col-md-6">
+      <label for="telefonodatos" class="form-label text-uppercase">Telefono</label>
+        <input
+        type="tel"
+        required pattern="[0-9]{10}"
+        title="ingrese un numero valido por favor"
+        class="form-control"
+        id="telefonodatos"
+        name="telefonodatos"
+        cols="30"
+        rows="5"
+        [(ngModel)]="telefonodatos"
+
+        placeholder="09999999999"/>
+    </div>
+
+  </div>
+
+</div>
+  <div class="col-12 text-center d-flex justify-content-center align-items-center gap-3">
+    <button type="button" class="btn btn-dark text-uppercase px-4 py-2 mt-3" routerLink="/panel/estudiante">
+      Regresar
+    </button>
+
+    <button type="button" class="btn btn-dark text-uppercase px-4 py-2 mt-3" (click)="guardarEdit()">
+      Actualizar
+    </button>
+
+    <button type="submit" class="btn btn-dark text-uppercase px-4 py-2 mt-3" (click)="guardardatos()">
+      Registrar
+    </button>
+  </div>
+
+  <div class="container center" style=" margin-top: 5%; max-width: 80rem;">
+    <div class="row ">
+      <table class="table table-hover" >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">NOMBRES</th>
+            <th scope="col">TELEFONO</th>
+            <th scope="col">OPCIONES</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr *ngFor="let listaDetalles of arrayTabla; index as i">
+            <td>{{ i + 1 }}</td>
+            <td>{{listaDetalles.nombre}}</td>
+            <td>{{listaDetalles.telefono}}</td>
+            <div>
+              <button
+                  type="button"
+                  title="EDITAR"
+                  class="btn btn-warning"
+                  (click)="Actualizar(listaDetalles)"><i class="bi bi-pen-fill"></i></button>&nbsp;
+              <button
+                  title="ELIMINAR"
+                  class="btn btn-danger"
+                  (click)="EliminarTab(listaDetalles.id)"><i class="bi bi-x-circle-fill"></i>
+              </button>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

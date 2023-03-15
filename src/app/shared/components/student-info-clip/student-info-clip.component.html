@@ -1,0 +1,25 @@
+<p>
+  <button
+    class="btn btn-dark"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#collapseWidthExample"
+    aria-expanded="false"
+    aria-controls="collapseWidthExample"
+  >
+    <i class="bi bi-paperclip"></i>
+  </button>
+</p>
+<div class="mb-4 text-muted">
+  <div class="collapse collapse-horizontal" id="collapseWidthExample">
+    <div class="card card-body" style="width: 300px">
+      <div *ngFor="let data of dataUI">
+        <strong *ngIf="data.label" class="text-uppercase"
+          >{{ data.label }}
+        </strong>
+        <i *ngIf="data.icon" [class]="data.icon + ' me-2'"></i>
+        <span>{{ data.content }}</span>
+      </div>
+    </div>
+  </div>
+</div>

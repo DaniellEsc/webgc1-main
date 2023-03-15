@@ -1,0 +1,35 @@
+nav {
+  height: 100%;
+}
+
+.side-nav-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.4s all ease;
+}
+
+.side-nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 30%;
+}
+
+.profile-tag {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  transition: all 0.4s ease-in-out;
+}
+
+.profile-tag:hover {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+  transform: scale(0.95);
+
+}

@@ -1,0 +1,60 @@
+<app-title title="Ofertas Aplicadas"></app-title>
+<div class="d-flex justify-content-center flex-column align-items-center">
+  <div
+    *ngFor="let postulacion of misPostulaciones; index as i"
+    class="card mb-3 p-2"
+  >
+    <div class="row g-0">
+      <div class="col-md-8">
+        <div class="d-flex flex-column">
+          <div class="d-flex justify-content-start align-items-center">
+            <img
+              class="border rounded me-2 p-2"
+              src="../../../../assets/icons/note_task_icon.svg"
+              width="75px"
+            />
+            <div class="d-flex flex-column w-100">
+              <h4 class="text-uppercase">
+                {{ ofertasLaboralesInfo[i]?.cargo }}
+              </h4>
+              <H6 class="text-uppercase">{{
+                ofertasLaboralesInfo[i]?.empresa
+              }}</H6>
+              <small class="text-muted fst-italic"
+                ><strong>Postulado en: </strong
+                >{{ postulacion.fecha | date }}</small
+              >
+            </div>
+          </div>
+          <p class="py-3 m-0">{{
+            ofertasLaboralesInfo[i]?.descripcion
+          }}</p>
+        </div>
+      </div>
+      <div class="col-md-4 ps-2 border-start">
+        <div class="d-flex justify-content-between align-items-center h-100">
+          <div class="d-flex flex-column h-100">
+            <span
+              ><i class="bi bi-geo-alt"></i>
+              {{ ofertasLaboralesInfo[i]?.ciudad }}</span
+            >
+            <span
+              ><i class="bi bi-clock"></i>
+              {{ ofertasLaboralesInfo[i]?.jornada }}</span
+            >
+          </div>
+          <div
+            class="d-flex flex-column justify-content-between h-100 align-items-end"
+          >
+            <i class="bi bi-x-circle-fill text-danger fs-3 delete" (click)="deletePostulacion(postulacion.id)"></i>
+
+            <span
+              class="badge {{ estadoPostulacionStyle(postulacion.estado) }}"
+              >{{ postulacion.estado }}</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

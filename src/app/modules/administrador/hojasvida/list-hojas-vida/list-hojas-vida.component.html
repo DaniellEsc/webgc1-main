@@ -1,0 +1,60 @@
+<div class="text-lg-start">
+  <app-back-button link="/panel/administrador"></app-back-button>
+</div>
+
+<div class="m-4">
+  <input
+    type="text"
+    class="form-control"
+    name="filterPost"
+    placeholder="Buscador..."
+    [(ngModel)]="filterPost"
+  />
+  <br />
+
+  <div class="wrapper">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">CEDULA</th>
+          <th scope="col">IMAGEN</th>
+          <th scope="col">NOMBRES</th>
+          <th scope="col">APELLIDOS</th>
+          <th scope="col">GENEROS</th>
+          <th scope="col">FECHA_NACIMIENTO</th>
+          <th scope="col">CIUDAD</th>
+          <th scope="col">DIRECCION</th>
+          <th scope="col">ESTADO CIVIL</th>
+          <th scope="col">VER MAS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let estudiantes of estudiante | listHojasVida: filterPost">
+          <td>{{ estudiantes.cedula }}</td>
+          <td>
+            <img src= "https://pespringboots3bucket.s3.amazonaws.com/{{estudiantes.rutaImagen}}"  alt="{{estudiantes.cedula + estudiantes.nombres + estudiantes.apellidos}}"   width="100" height="100"  >
+          </td>
+          <td>{{ estudiantes.nombres }}</td>
+          <td>{{ estudiantes.apellidos }}</td>
+          <td>{{ estudiantes.genero }}</td>
+          <td>{{ estudiantes.fechaNacimiento }}</td>
+          <td>{{ estudiantes.ciudad }}</td>
+          <td>{{ estudiantes.direccion }}</td>
+          <td>{{ estudiantes.estadoCivil }}</td>
+
+          <div>
+            <button
+              type="button"
+              class="btn btn-outline-info text-uppercase px-4 py-2 mt-3"
+              routerLink="/panel/administrador/hojas-vida/{{ estudiantes.id }}"
+            >
+              VER MAS
+            </button>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<br />

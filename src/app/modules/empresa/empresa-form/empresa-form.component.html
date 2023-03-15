@@ -1,0 +1,148 @@
+<app-title title="Datos Empresa"></app-title>
+<form class="row g-4" ngNativeValidate (ngSubmit)="registrarEmpresa()">
+  <div class="col-lg-3 col-md-6">
+    <label for="nombre" class="form-label text-uppercase">Nombre</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Nombre público"
+      name="nombre"
+      id="nombre"
+      [(ngModel)]="empresa.nombre"
+      required
+    />
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <label for="ruc" class="form-label text-uppercase">RUC</label>
+    <input
+      type="text"
+      class="form-control"
+      id="ruc"
+      name="ruc"
+      placeholder="1768152560001"
+      (change)="validateRUC(empresa.ruc)"
+      [(ngModel)]="empresa.ruc"
+      required
+    />
+    <small *ngIf="!validateRUC(empresa.ruc)" class="text-danger">{{
+      rucAlert
+    }}</small>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <label for="sectorEmpresarial" class="form-label text-uppercase"
+      >Sector Empresarial</label
+    >
+    <select
+      id="sectorEmpresarial"
+      name="sectorEmpresarial"
+      class="form-select"
+      [(ngModel)]="empresa.sectorEmpresarial"
+      required
+    >
+      <option value="" disabled selected="selected">
+        Selecciona el sector empresarial
+      </option>
+      <option
+        [value]="sector.nombre"
+        *ngFor="let sector of sectoresEmpresariales"
+      >
+        {{ sector.nombre }}
+      </option>
+    </select>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <label for="tipoEmpresa" class="form-label text-uppercase"
+      >Tipo de empresa</label
+    >
+    <select
+      id="tipoEmpresa"
+      name="tipoEmpresa"
+      class="form-select"
+      [(ngModel)]="empresa.tipoEmpresa"
+      required
+    >
+      <option value="" disabled selected="selected">
+        Selecciona el tipo de Empresa
+      </option>
+      <option [value]="tipo" *ngFor="let tipo of tiposEmpresas">
+        {{ tipo }}
+      </option>
+    </select>
+  </div>
+  <div class="col-lg-4 col-md-12">
+    <label for="razonSocial" class="form-label text-uppercase"
+      >Razón Social</label
+    >
+    <input
+      type="text"
+      class="form-control"
+      id="razonSocial"
+      name="razonSocial"
+      [(ngModel)]="empresa.razonSocial"
+      required
+    />
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <label for="departamento" class="form-label text-uppercase"
+      >Departamento</label
+    >
+    <input
+      type="text"
+      class="form-control"
+      id="departamento"
+      name="departamento"
+      placeholder="Dpto. Cuenca 01"
+      [(ngModel)]="empresa.departamento"
+      required
+    />
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <label for="ciudad" class="form-label text-uppercase">Ciudad</label>
+    <select
+      id="ciudad"
+      name="ciudad"
+      class="form-select"
+      [(ngModel)]="empresa.ciudad"
+      required
+    >
+      <option value="" disabled selected="selected">
+        Selecciona una ciudad
+      </option>
+      <option [value]="ciudad.nombre" *ngFor="let ciudad of ciudades">
+        {{ ciudad.nombre }}
+      </option>
+    </select>
+  </div>
+  <div class="col-lg-6 col-md-7">
+    <label for="direccion" class="form-label text-uppercase">Dirección</label>
+    <input
+      type="text"
+      class="form-control"
+      id="direccion"
+      name="direccion"
+      placeholder="Av. Américas"
+      [(ngModel)]="empresa.direccion"
+      required
+    />
+  </div>
+  <div class="col-lg-6 col-md-5">
+    <label for="sitioWeb" class="form-label text-uppercase">Sitio web</label>
+    <input
+      type="text"
+      class="form-control"
+      id="sitioWeb"
+      name="sitioWeb"
+      placeholder="www.empresa.com"
+      [(ngModel)]="empresa.sitioWeb"
+      required
+    />
+  </div>
+  <div
+    class="col-12 text-center d-flex justify-content-center align-items-center gap-3"
+  >
+    <app-back-button link="/panel/empresa"></app-back-button>
+    <button type="submit" class="btn btn-dark text-uppercase px-4 py-2 mt-3" [disabled]="!validateRUC(empresa.ruc)">
+      Registrar
+    </button>
+  </div>
+</form>

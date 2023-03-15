@@ -1,0 +1,100 @@
+<!-- title -->
+<app-title title="Registro de Provincias"></app-title>
+
+<!-- Form -->
+
+<form class="row" ngNativeValidate (ngSubmit)="registrar()">
+  <div class="col-md-6 offset-md-3">
+    <label for="nombre" class="form-label text-uppercase">Nombre</label>
+    <input
+      type="text"
+      class="form-control"
+      name="nombre"
+      id="nombre"
+      [(ngModel)]="provincia.nombre"
+      required
+    />
+  </div>
+
+  <div class="col-md-6 offset-md-3 mt-4">
+    <label for="pais" class="form-label text-uppercase">País</label>
+    <select
+      id="pais"
+      name="pais"
+      class="form-select"
+      [(ngModel)]="provincia.pais"
+      required
+    >
+      <option value="" disabled selected="selected">
+        Selecciona el país correspondiente
+      </option>
+      <option [value]="pais" *ngFor="let pais of paises">
+        {{ pais }}
+      </option>
+    </select>
+  </div>
+  <div
+    class="col-12 text-center d-flex justify-content-center align-items-center gap-3 mt-3"
+  >
+    <button
+      type="button"
+      class="btn btn-dark text-uppercase px-4 py-2 mt-3"
+      routerLink="/panel/administrador"
+    >
+      Regresar
+    </button>
+    <button type="submit" class="btn btn-dark text-uppercase px-4 py-2 mt-3">
+      Registrar
+    </button>
+  </div>
+</form>
+
+<!-- table -->
+
+<div class="p-4">
+
+  <input
+    type="text"
+    class="form-control"
+    name="filterPost"
+    placeholder="Buscador..."
+    [(ngModel)]="filterPost"
+  />
+  <div class="container-fluid p-0 wrapper" *ngIf="provincias.length > 0">
+
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Provincia</th>
+        <th scope="col">País</th>
+        <th colspan="2"><i class="bi bi-gear"></i> Opciones</th>
+      </tr>
+      </thead>
+      <tbody class="table-group-divider">
+      <tr *ngFor="let provincia of provincias | provincia: filterPost; index as i  ">
+        <td>{{ i + 1 }}</td>
+        <td>{{ provincia.nombre }}</td>
+        <td>{{ provincia.pais }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-warning"
+            (click)="loadInfoToForm(provincia)"
+          >
+            <i class="bi bi-pen-fill"></i>
+          </button>
+        </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="deleteProvincia(provincia.id!)"
+          >
+            <i class="bi bi-x-circle-fill"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>

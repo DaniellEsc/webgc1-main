@@ -1,0 +1,95 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img
+          width="50px"
+          src="..../../../../assets/icons/maletin-icon.svg"
+          alt="icon"
+        />
+        <h1 class="modal-title fs-5 text-uppercase" id="loginModalLabel">
+          Login
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="cleanForm()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="loginForm" (ngSubmit)="authenticate()">
+          <div class="mb-1">
+            <label for="username" class="col-form-label text-uppercase"
+              >Usuario:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              name="username"
+              placeholder="Usuario"
+              formControlName="username"
+            />
+          </div>
+          <small
+            class="bg-danger text-light my-1 px-2 py-1 rounded d-block"
+            *ngIf="fm['username'].errors && loginSubmitted"
+            ><ng-container *ngIf="fm['username'].value === ''"
+              >El usuario es requerido</ng-container
+            ></small
+          >
+          <div class="mt-2 mb-1">
+            <label for="password" class="col-form-label text-uppercase"
+              >Contraseña:</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              placeholder="Contraseña"
+              formControlName="password"
+            />
+          </div>
+          <small
+            class="bg-danger text-light my-1 px-2 py-1 rounded d-block"
+            *ngIf="fm['password'].errors && loginSubmitted"
+            ><ng-container *ngIf="fm['password'].value === ''"
+              >El password es requerido</ng-container
+            ></small
+          >
+          <div
+            class="d-flex justify-content-center align-items-center gap-2 py-3"
+          >
+            <button
+              type="submit"
+              data-bs-dismiss="modal"
+              class="btn btn-dark px-4 text-uppercase"
+            >
+              Ingresar
+            </button>
+            <button
+              *ngIf="role !== 'ROLE_ADMINISTRADOR'"
+              type="button"
+              class="btn btn-dark px-4 text-uppercase"
+              data-bs-dismiss="modal"
+              routerLink="/signUp"
+              (click)="register()"
+            >
+              Registrarse
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

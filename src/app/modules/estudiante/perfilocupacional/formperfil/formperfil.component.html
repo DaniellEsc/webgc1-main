@@ -1,0 +1,68 @@
+<div class="container mx-auto">
+  <app-title title="Registrar Perfil Ocupacional"></app-title>
+  <form class="row g-4" ngNativeValidate (ngSubmit)="registrarPerfil()">
+    <div class="col-md-12">
+      <div class="col-md-12 mb-3">
+        <label for="habilidades" class="form-label text-uppercase"
+          >Habilidades</label
+        >
+        <textarea
+          class="form-control"
+          id="habilidades"
+          name="habilidades"
+          [(ngModel)]="postperfil.habilidades"
+          required
+          placeholder="Habilidades"
+        ></textarea>
+      </div>
+      <div class="col-md-12 mb-3">
+        <label for="actitudes" class="form-label text-uppercase"
+          >Actitudes</label
+        >
+
+        <input
+          type="text"
+          class="form-control"
+          id="actitudes"
+          name="actitudes"
+          cols="30"
+          rows="5"
+          [(ngModel)]="postperfil.actitudes"
+          required
+          placeholder="Actitudes"
+        />
+      </div>
+
+      <div class="col-md-12 mb-3">
+        <label for="destrezas" class="form-label text-uppercase"
+          >Destrezas</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="destrezas"
+          name="destrezas"
+          cols="30"
+          rows="5"
+          [(ngModel)]="postperfil.destrezas"
+          required
+          placeholder="Destrezas"
+        />
+      </div>
+
+      <div
+        class="col-12 text-center d-flex justify-content-center align-items-center gap-3"
+      >
+        <app-back-button
+          [link]="'/panel/estudiante/perfilOcupacional/estudiante/' + this.estudiante_id"
+        ></app-back-button>
+        <button
+          type="submit"
+          class="btn btn-dark text-uppercase px-4 py-2 mt-3"
+        >
+          Registrar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

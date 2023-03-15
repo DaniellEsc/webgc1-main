@@ -1,0 +1,1 @@
+son todos los componentes compartidos del proyecto como el boton para regresar

@@ -1,0 +1,10 @@
+.container-fluid .row i {
+  font-size: 1.5rem;
+  color: black;
+  transition: color 0.3s ease-in-out;
+}
+
+.container-fluid .row i:hover{
+  cursor: pointer;
+  color: gray;
+}

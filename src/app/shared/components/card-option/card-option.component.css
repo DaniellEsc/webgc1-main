@@ -1,0 +1,12 @@
+.card {
+  transition: 0.5s all ease-in-out;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 0 1px rgba(0, 0, 0, 0.5);
+}
+
+h5 {
+  text-transform: uppercase;
+}

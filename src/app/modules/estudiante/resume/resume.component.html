@@ -1,0 +1,106 @@
+<app-title title="Estudiante"></app-title>
+<div
+  class="container-fluid d-flex gap-3 align-items-center justify-content-center"
+  *ngIf="perfilEstudiante; else addOption"
+>
+  <div class="shadow-sm p-5 mb-5 bg-body rounded">
+    <div class="row">
+      <div class="col-md-11">
+        <div class="row">
+          <div
+            class="col-md-6 d-flex justify-content-start align-items-center gap-3 py-2"
+          >
+            <h6 class="mb-0 text-uppercase">Nombres:</h6>
+            <div>{{ perfilEstudiante?.nombres }}</div>
+          </div>
+          <div
+            class="col-md-6 d-flex justify-content-start align-items-center gap-3 py-2"
+          >
+            <h6 class="mb-0 text-uppercase">Apellidos:</h6>
+            <div>{{ perfilEstudiante?.apellidos }}</div>
+          </div>
+          <div
+            class="col-md-6 d-flex justify-content-start align-items-center gap-3 py-2"
+          >
+            <h6 class="mb-0 text-uppercase">Cédula:</h6>
+            <div>{{ perfilEstudiante?.cedula }}</div>
+          </div>
+          <div
+            class="col-md-6 d-flex justify-content-start align-items-center gap-3 py-2"
+          >
+            <h6 class="mb-0 text-uppercase">Género:</h6>
+            <div>
+              {{ showGenre(perfilEstudiante?.genero) }}
+            </div>
+          </div>
+          <div
+            class="col-md-6 d-flex justify-content-start align-items-center gap-3 py-2"
+          >
+            <h6 class="mb-0 text-uppercase">F. Nacimiento:</h6>
+            <div>
+              {{ perfilEstudiante?.fechaNacimiento }}
+            </div>
+          </div>
+          <div
+            class="col-md-6 d-flex justify-content-start align-items-center gap-3 py-2"
+          >
+            <h6 class="mb-0 text-uppercase">Ciudad:</h6>
+            <div>
+              {{ perfilEstudiante?.ciudad }}
+            </div>
+          </div>
+          <div
+            class="col-md-6 d-flex justify-content-start align-items-center gap-3 py-2"
+          >
+            <h6 class="mb-0 text-uppercase">Dirección:</h6>
+            <div>
+              {{ perfilEstudiante?.direccion }}
+            </div>
+          </div>
+          <div
+            class="col-md-6 d-flex justify-content-start align-items-center gap-3 py-2"
+          >
+            <h6 class="mb-0 text-uppercase">Estado Civil:</h6>
+            <div>
+              {{ perfilEstudiante?.estadoCivil }}
+            </div>
+          </div>
+
+          <div
+            *ngIf="perfilEstudiante?.urlImagen"
+            class="col-md-6 d-flex justify-content-start align-items-center gap-3 py-2"
+          >
+            <h6 class="mb-0 text-uppercase">Foto de perfil:</h6>
+            <img
+              [src]="perfilEstudiante?.urlImagen"
+              alt="FOTO"
+              width="100"
+              height="100"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-1 d-flex justify-content-end">
+        <i
+          class="bi bi-pencil-square"
+          title="editar"
+          routerLink="/panel/estudiante/personal-form/{{ perfilEstudiante.id }}"
+        ></i>
+      </div>
+    </div>
+  </div>
+  <app-data-card [data]="totalOfertas"> </app-data-card>
+</div>
+
+<ng-template #addOption>
+  <app-add-option link="/panel/estudiante/personal-form"></app-add-option>
+</ng-template>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <app-card-option
+    [ngClass]="disableCards()"
+    [data]="option"
+    *ngFor="let option of studentOptions"
+  ></app-card-option>
+</div>

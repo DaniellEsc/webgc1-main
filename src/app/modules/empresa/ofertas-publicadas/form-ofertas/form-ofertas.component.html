@@ -1,0 +1,168 @@
+<div class="container mx-auto">
+    <app-title title="Registrar Oferta Laboral"></app-title>
+    <form class="row g-4" ngNativeValidate (ngSubmit)="registrarOferta()">
+      
+      <div class="col-md-12">
+        <label for="cargo" class="form-label text-uppercase"
+          >Cargo</label>
+        <input
+        type="text"
+        class="form-control"
+        id="cargo"
+        name="cargo"
+        cols="30"
+        rows="5"
+        [(ngModel)]="postOferta.cargo"
+        required
+        placeholder="Cargo Laboral"/>
+      </div>
+
+
+      <div class="col-md-12">
+        <label for="descripcion" class="form-label text-uppercase">Descripcion</label>
+        <input
+        type="text"
+        class="form-control"
+        id="descripcion"
+        name="descripcion"
+        cols="30"
+        rows="5"
+        [(ngModel)]="postOferta.descripcion"
+        required
+        placeholder="Breve descripcion de la oferta laboral"/>
+      </div>
+
+
+
+      <div class="col-md-12">
+        <label for="area_conocimiento" class="form-label text-uppercase">Area de Conocimiento</label>
+        <input
+        type="text"
+        class="form-control"
+        id="area_conocimiento"
+        name="area_conocimiento"
+        cols="30"
+        rows="5"
+        [(ngModel)]="postOferta.area_conocimiento"
+        required
+        placeholder="Area o Conocimientos previos"/>
+      </div>
+  
+
+
+
+
+      <div class="col-md-12">
+        <label for="salario" class="form-label text-uppercase">Salario</label>
+        <input
+        type="number"
+        class="form-control"
+        id="salario"
+        name="salario"
+        cols="30"
+        rows="5"
+        [(ngModel)]="postOferta.salario"
+        required
+        placeholder="0000"/>
+      </div>
+      
+
+      <div class="col-md-12">
+        <label for="jornada" class="form-label text-uppercase">Jornada</label>
+        <input
+        type="text"
+        class="form-control"
+        id="jornada"
+        name="jornada"
+        cols="30"
+        rows="5"
+        [(ngModel)]="postOferta.jornada"
+        required
+        placeholder="Jornada laboral"/>
+      </div>
+
+
+      <div class="col-md-12">
+        <label for="requisitos_academicos" class="form-label text-uppercase">Requisitos Academicos</label>
+        <input
+        type="text"
+        class="form-control"
+        id="requisitos_academicos"
+        name="requisitos_academicos"
+        cols="30"
+        rows="5"
+        [(ngModel)]="postOferta.requisitos_academicos"
+        required
+        placeholder="Requisitos academicos"/>
+      </div>
+
+
+
+      <div class="col-md-12">
+        <label for="experiencia" class="form-label text-uppercase">Experiencia</label>
+        <input
+        type="text"
+        class="form-control"
+        id="experiencia"
+        name="experiencia"
+        cols="30"
+        rows="5"
+        [(ngModel)]="postOferta.experiencia"
+        required
+        placeholder="Experiencia para el empleo"/>
+      </div>
+
+
+      <div class="col-md-12">
+        <label for="ubicacion" class="form-label text-uppercase">Direccion</label>
+        <input
+        type="text"
+        class="form-control"
+        id="ubicacion"
+        name="ubicacion"
+        cols="30"
+        rows="5"
+        [(ngModel)]="postOferta.ubicacion"
+        required
+        placeholder="Av de las Americas"/>
+      </div>
+
+
+      <div class="col-md-12">
+        <label for="ciudad" class="col-form-label col-sm-2">Ciudad</label>
+        <div class="col-sm-6">
+            
+            <select class="form-control" aria-label="Default select example" name="ciudad"  type="text" [(ngModel)]="postOferta.ciudad" >
+                 <option selected></option>
+                 <option  *ngFor="let ciudad of ciudades">{{ciudad.nombre}}</option>     
+               </select>   
+        </div>
+    </div>
+
+
+      <div class="col-md-12">
+        <label for="fecha_inicio" class="col-form-label col-sm-2">FECHA DE INICIO</label>
+        <div class="col-sm-6">
+            <input type="date" id="star" name="trip-start" value="2022-11-01" min="2022-11-01" max="2022-12-31" 
+        [(ngModel)]="postOferta.fecha_inicio" >
+        </div>
+    </div>
+
+      <div class="col-md-12">
+        <label for="fecha_fin" class="col-form-label col-sm-2">FECHA DE FIN </label>
+        <div class="col-sm-6">
+            <input type="date" id="star" name="trip-start" value="2022-11-01" min="2022-11-01" max="2023-12-31" 
+        [(ngModel)]="postOferta.fecha_fin" >
+        </div>
+    </div>
+      <div
+        class="col-12 text-center d-flex justify-content-center align-items-center gap-3">
+        <app-back-button
+          [link]="'/panel/empresa/ofertasPublicadas/empresa/' + this.empresa_id"
+        ></app-back-button>
+        <button type="submit" class="btn btn-dark text-uppercase px-4 py-2 mt-3">
+          Registrar
+        </button>
+      </div>
+    </form>
+  </div>

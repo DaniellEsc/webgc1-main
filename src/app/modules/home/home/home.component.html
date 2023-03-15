@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <app-header></app-header>
+  <div
+    class="d-flex flex-column justify-content-center align-items-center gap-4"
+  >
+    <div
+      class="card bg-light"
+      data-bs-toggle="modal"
+      data-bs-target="#loginModal"
+      (click)="selectEntity(1)"
+    >
+      <div class="card-body">
+        <div class="text-center">
+          <img
+            width="100px"
+            src="../../../../assets/icons/graduation-icon.svg"
+          />
+        </div>
+        <h5 class="text-center pt-2">Estudiante / Egresado</h5>
+      </div>
+    </div>
+    <div
+      class="card bg-light"
+      data-bs-toggle="modal"
+      data-bs-target="#loginModal"
+      (click)="selectEntity(2)"
+    >
+      <div class="card-body">
+        <div class="text-center">
+          <img width="100px" src="../../../../assets/icons/building-icon.svg" />
+        </div>
+        <h5 class="text-center pt-2">Empresa</h5>
+      </div>
+    </div>
+  </div>
+  <div class="button-container mb-5">
+    <button
+      class="btn btn-dark px-4"
+      type="button"
+      data-bs-toggle="modal"
+      data-bs-target="#loginModal"
+      (click)="selectEntity(3)"
+    >
+      ADMINISTRADOR
+    </button>
+  </div>
+</div>
+
+<!-- modal login -->
+<app-login [role]="roleName"></app-login>

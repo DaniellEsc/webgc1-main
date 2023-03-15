@@ -1,0 +1,53 @@
+<div class="text-lg-start">
+  <app-back-button link="/panel/administrador"></app-back-button>
+</div>
+
+<br/>
+
+<div class="m-4">
+  <input
+    type="text"
+    class="form-control"
+    name="filterPost"
+    placeholder="Buscador..."
+    [(ngModel)]="filterPost"
+  />
+  <br/>
+
+  <div class="wrapper">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">FECHA</th>
+        <th scope="col">ESTADO</th>
+        <th scope="col">OFERTA LABORAL</th>
+        <th scope="col">CEDULA</th>
+        <th scope="col">VER MAS</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr
+        *ngFor="
+            let postulacion of postulaciones | postulacionespipe: filterPost
+          "
+      >
+        <td>{{ postulacion.fecha }}</td>
+        <td>{{ postulacion.estado }}</td>
+        <td>{{ postulacion.ofertalaboral_id }}</td>
+        <td>{{ postulacion.cedula }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-outline-primary text-uppercase px-4 py-2 mt-3"
+            routerLink="/panel/administrador/postulaciones/{{
+                postulacion.id
+              }}"
+          >
+            ver mas
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

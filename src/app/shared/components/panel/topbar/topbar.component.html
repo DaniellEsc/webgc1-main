@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark px-2">
+  <div class="side-nav-button p-2 me-3 text-light" (click)="sideNavToggle()">
+    <i class="bi bi-list"></i>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center w-100">
+    <a class="navbar-brand d-flex align-items-center gap-1" routerLink="/panel">
+      <img
+        src="../../../../../assets/icons/maletin-icon.svg"
+        alt="icon"
+        width="40px"
+      />ISTA EMPLEO</a
+    >
+    <div class="profile-tag rounded" routerLink="/perfil">
+      <i class="bi bi-person-circle"></i><span>{{ username }}</span>
+    </div>
+  </div>
+</nav>

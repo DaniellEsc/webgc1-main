@@ -1,0 +1,42 @@
+<app-header></app-header>
+<div class="container w-75">
+  <h2 class="text-center mb-4">Registro</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="register()" class="row g-5">
+    <div class="col-md-6">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control" id="username" name="username"
+      formControlName="username" />
+    </div>
+    <div class="col-md-6">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password"
+      formControlName="password"/>
+    </div>
+
+    <div class="col-md-6">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email"
+      name="email"
+      formControlName="email" />
+    </div>
+
+    <div class="col-md-6">
+      <label for="telefono" class="form-label">Teléfono</label>
+      <input type="tel" class="form-control" id="telefono"
+      name="telefono"
+      formControlName="telefono" />
+    </div>
+    <div class="col-12 d-flex gap-4 justify-content-center align-items-center">
+      <button
+        type="button"
+        class="btn btn-dark px-4 text-uppercase"
+        routerLink="/home"
+      >
+        Regresar
+      </button>
+      <button type="submit" class="btn btn-dark px-4 text-uppercase" [disabled]="!registerForm.valid">
+        Registrarse
+      </button>
+    </div>
+  </form>
+</div>

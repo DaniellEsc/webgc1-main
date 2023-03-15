@@ -1,0 +1,1 @@
+Supongo que esta es la sección donde capturan el dato de autenticación de la api

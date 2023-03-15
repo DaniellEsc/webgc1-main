@@ -1,0 +1,95 @@
+<!-- title -->
+<app-title title="Registro de Ciudades"></app-title>
+
+<form class="row" ngNativeValidate (ngSubmit)="registrar()">
+  <div class="col-md-6 offset-md-3">
+    <label for="nombre" class="form-label text-uppercase">Nombre</label>
+    <input
+      type="text"
+      class="form-control"
+      name="nombre"
+      id="nombre"
+      [(ngModel)]="ciudad.nombre"
+      required
+    />
+  </div>
+
+  <div class="col-md-6 offset-md-3 mt-4">
+    <label for="pais" class="form-label text-uppercase">Provincia</label>
+    <select
+      id="pais"
+      name="pais"
+      class="form-select"
+      [(ngModel)]="ciudad.provincia"
+      required
+    >
+      <option value="" disabled selected="selected">
+        Seleccione la provincia
+      </option>
+      <option *ngFor="let provi of provincias">
+        {{ provi.nombre }}
+      </option>
+    </select>
+  </div>
+  <div
+    class="col-12 text-center d-flex justify-content-center align-items-center gap-3 mt-3"
+  >
+    <button
+      type="button"
+      class="btn btn-dark text-uppercase px-4 py-2 mt-3"
+      routerLink="/panel/administrador"
+    >
+      Regresar
+    </button>
+    <button type="submit" class="btn btn-dark text-uppercase px-4 py-2 mt-3">
+      Registrar
+    </button>
+  </div>
+</form>
+
+<div class="p-4">
+  <input
+    type="text"
+    class="form-control"
+    name="filterCiudad"
+    placeholder="Buscador..."
+    [(ngModel)]="filterCiudad"
+  />
+  <div class="container-fluid p-0 wrapper" *ngIf="ciudades.length > 0">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre Ciudad</th>
+          <th scope="col">Provincia</th>
+          <th colspan="2"><i class="bi bi-gear"></i> Opciones</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr *ngFor="let ciu of ciudades | ciudad : filterCiudad; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ ciu.nombre }}</td>
+          <td>{{ ciu.provincia }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-warning"
+              (click)="loadInfoToForm(ciu)"
+            >
+              <i class="bi bi-pen-fill"></i>
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="EliminarCiudades(ciu.id!)"
+            >
+              <i class="bi bi-x-circle-fill"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
